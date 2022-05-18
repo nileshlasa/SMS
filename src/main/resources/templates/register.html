@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8">
@@ -119,14 +119,14 @@
 		<!-- ======= About Section ======= -->
 		<section id="about" class="about">
 			<div class="container">
-				<form  method="post" action="/AddNewStudent">
+				<form  method="post" th:action="@{/AddNewStudent}">
 					<div class="row">
 
 						<div class="col-lg-6">
 							<label>Name </label>
 						</div>
 						<div class="col-lg-6">
-							<input type="text" name="name" />
+							<input type="text" th:name="name" />
 						</div>
 					</div>
 					<div class="row">
@@ -136,7 +136,7 @@
 
 						</div>
 						<div class="col-lg-6">
-							<input type="text" name="mobnumber" />
+							<input type="text" th:name="mobile" />
 
 						</div>
 					</div>
@@ -146,7 +146,7 @@
 							<label>Email</label>
 						</div>
 						<div class="col-lg-6">
-							<input type="email" name="email" />
+							<input type="email" th:name="email" />
 						</div>
 					</div>
 					<div class="row">

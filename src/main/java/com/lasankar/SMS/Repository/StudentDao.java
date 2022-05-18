@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import om.lasankar.SMS.Repository.Entity.Student;
+import com.lasankar.SMS.Repository.Entity.Student;
 
 @Repository
 public class StudentDao {
@@ -23,9 +23,9 @@ public class StudentDao {
 
 	public int Add(Student student)
 	{
-		String sql="insert into student (id,name,email,mobile) values(?,?,?,?)";
+		String sql="insert into student (name,email,mobile) values(?,?,?)";
 		
-		 int count = jdbctemplate.update(sql, student.getId(),student.getName(),student.getEmail(),student.getMobile());
+		 int count = jdbctemplate.update(sql,student.getName(),student.getEmail(),student.getMobile());
 		return count;
 	}
 
