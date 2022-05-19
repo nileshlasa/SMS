@@ -9,7 +9,7 @@ public class Student {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private int id=0;
 	private String name="";
 	private String mobile;
 	private String email="";

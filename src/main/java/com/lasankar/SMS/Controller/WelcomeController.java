@@ -59,5 +59,6 @@ public class WelcomeController {
 	{
 		return "register";
 	}
-
+	
+	
 }

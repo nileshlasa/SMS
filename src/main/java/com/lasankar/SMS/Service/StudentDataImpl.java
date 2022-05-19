@@ -1,5 +1,7 @@
 package com.lasankar.SMS.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +20,14 @@ public class StudentDataImpl implements StudentData{
 		int count = studentdao.Add(student);
 		return count;
 	}
+
+
+	@Override
+	public List<Student> FindStudents() {
+		// TODO Auto-generated method stub
+		return studentdao.FindAll();
+	}
+	
+	
 
 }
