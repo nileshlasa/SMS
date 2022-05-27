@@ -1,6 +1,7 @@
 package com.lasankar.SMS.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,8 @@ public class StudentDataImpl implements StudentData{
 	
 	
 	@Override
-	public int addStudent(Student student) {
-		int count = studentdao.Add(student);
-		return count;
+	public void addStudent(Student student) {
+		studentdao.Add(student);
 	}
 
 
@@ -26,6 +26,19 @@ public class StudentDataImpl implements StudentData{
 	public List<Student> FindStudents() {
 		// TODO Auto-generated method stub
 		return studentdao.FindAll();
+	}
+
+
+	@Override
+	public Optional<Student> findStudent(int id) {
+		// TODO Auto-generated method stub
+		return studentdao.findStudent(id);
+	}
+
+
+	public void deleteStudent(int id) {
+		studentdao.deleteStudent(id);
+		
 	}
 	
 	

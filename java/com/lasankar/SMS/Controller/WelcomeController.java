@@ -1,7 +1,10 @@
 package com.lasankar.SMS.Controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.lasankar.SMS.Repository.Entity.Student;
 
 @Controller
 public class WelcomeController {
@@ -55,8 +58,20 @@ public class WelcomeController {
 	}
 	
 	@RequestMapping(value="/register.html")
-	public String HandleRegisterPage()
+	public String HandleRegisterPage(Model model)
 	{
+		try
+		{
+		if(model.getAttribute("student")==null)
+		{
+		Student student=new Student(); 
+		model.addAttribute(student);
+		}
+		}
+		catch(Exception ex)
+		{
+			
+		}
 		return "register";
 	}
 	
