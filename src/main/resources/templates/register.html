@@ -111,7 +111,12 @@
 					<li><a href="index.html">Home</a></li>
 					<li>Register</li>
 				</ol>
+				<div th:if="${message}">
+				<h2> [[${message}]] </h2>
+				</div>
+				<div th:unless="${message}">
 				<h2>Add New Student</h2>
+				</div>
 
 			</div>
 		</section><!-- End Breadcrumbs -->
@@ -119,46 +124,54 @@
 		<!-- ======= About Section ======= -->
 		<section id="about" class="about">
 			<div class="container">
-				<form  method="post" th:action="@{/AddNewStudent}">
-					<div class="row">
 
-						<div class="col-lg-6">
+				<form method="post" th:action="@{/AddNewStudent}" th:object="${student}"
+					style="max-width:500px; margin:0 auto; ">
+					<div class="border border-secondary rounded p-3">
+
+					<input type="hidden" th:field="*{id}" />
+
+					<div class="form-group row">
+						<div class="col-lg-4 col-form-label">
 							<label>Name </label>
 						</div>
-						<div class="col-lg-6">
-							<input type="text" th:name="name" />
+						<div class="col-lg-8 p-2">
+							<input type="text" th:field="*{Name}" th:name="name" class="form-control " required/>
 						</div>
 					</div>
-					<div class="row">
+					<div class="form-group row">
 
-						<div class="col-lg-6">
+						<div class="col-lg-4 col-form-label">
 							<label>Mobile </label>
 
 						</div>
-						<div class="col-lg-6">
-							<input type="text" th:name="mobile" />
+						<div class="col-lg-8 p-2">
+							<input type="text" th:field="*{mobile}" th:name="mobile"  class="form-control " minlength="7" maxlength="10" required />
 
 						</div>
 					</div>
-					<div class="row">
+					<div class="form-group row">
 
-						<div class="col-lg-6">
+						<div class="col-lg-4 col-form-label">
 							<label>Email</label>
 						</div>
-						<div class="col-lg-6">
-							<input type="email" th:name="email" />
+						<div class="col-lg-8 p-2">
+							<input type="email" th:field="*{email}" th:name="email"  class="form-control " required/>
 						</div>
 					</div>
-					<div class="row">
 					
-					<input type="submit" value="Save" />
-			
+						<div class="text-center ">
+							<input type="submit" class="btn btn-primary m-2" value="Save" />
+						
+						
+							<input type="button" class="btn btn-secondary m-2" value="Cancel" onClick=javascript:CancelForm() />
+						</div>
+
+
+					</div>
+
+				</form>
 			</div>
-
-
-
-			</form>
-
 
 		</section><!-- End About Section -->
 
@@ -265,6 +278,11 @@
 
 		<!-- Template Main JS File -->
 		<script src="/js/main.js"></script>
+		<script type="text/javascript">
+			function CancelForm() {
+				window.location="[[@{/ShowAll}]]";
+			}
+		</script >
 
 </body>
 
