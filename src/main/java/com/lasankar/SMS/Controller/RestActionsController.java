@@ -13,7 +13,7 @@ public class RestActionsController {
 	@Autowired
 	StudentDataImpl studentService;
 	
-	@PostMapping("/deleteRecord")
+	@PostMapping(value="/deleteRecord")
 	public String DeleteStudent(@RequestParam int id)
 	{
 		System.out.print("reached");

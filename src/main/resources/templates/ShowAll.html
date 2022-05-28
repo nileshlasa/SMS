@@ -26,7 +26,8 @@
 	<link href="/css/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 	<link href="/css/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 	<link href="/css/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- Template Main CSS File -->
 	<link href="/css/style.css" rel="stylesheet">
 	<style>
@@ -141,7 +142,7 @@
 						</tr>
 					</thead>
 					<div th:each="module : ${modules}">
-						<tr>
+						<tr th:id=${module.id}>
 							<td><span th:text=${module.id} /></td>
 							<td><span th:text=${module.name} /></td>
 							<td><span th:text=${module.mobile} /></td>

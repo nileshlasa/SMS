@@ -11,16 +11,16 @@
 
 });*/
 
-function fire_ajax_submit(id) {
-alert(id);
+function fire_ajax_submit(abc) {
+	var selectedID = abc;
+
 	$.ajax({
-		type: "POST",
-		contentType: "application/text",
+		type: "Post",
 		url: "deleteRecord",
-		data: id,
-		dataType: 'text',
+		data: {'id': selectedID},
 		success: function(result) {
-			alert("Success!")
+			//window.location="ShowAll";
+			$("#" +selectedID + "").hide("fast");
 			console.log(result);
 		},
 		error: function(e) {
